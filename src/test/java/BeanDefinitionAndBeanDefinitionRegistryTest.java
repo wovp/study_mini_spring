@@ -26,15 +26,3 @@ public class BeanDefinitionAndBeanDefinitionRegistryTest {
         helloService1.sayHello();
     }
 }
-
-class HelloService {
-    private int count;
-    public HelloService(){
-        count = 0;
-    }
-    public String sayHello() {
-        count += 1;
-        System.out.println("hello, count = " + count);
-        return "hello";
-    }
-}

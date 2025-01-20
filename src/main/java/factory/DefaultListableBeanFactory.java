@@ -2,6 +2,8 @@ package factory;
 
 import config.BeanDefinition;
 import registry.BeanDefinitionRegistery;
+import strtegy.InstatiationStrategy;
+import strtegy.SimpleInstantiationStrategy;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +17,7 @@ import java.util.Map;
  */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistery {
     private Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();
+
 
     @Override
     protected BeanDefinition getBeanDefinition(String name) {
