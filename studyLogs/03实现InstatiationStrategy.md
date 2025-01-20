@@ -1,11 +1,15 @@
-## 实现InstantiationStrategy
-根据类图，提取出instantiate实例化方法，然后分别用无参构造bean（simpleInstantiationStrategy）和Cglib动态代理生成bean（Cglib）
+# 实现 `InstantiationStrategy`
 
-### 修改AbstractAutowireCapableBeanFactory实例化方法
-把实例化需求嵌入Factory中，让用户可以选择使用的实例化策略
+依据类图，抽取出 `instantiate` 实例化方法。此后，分别运用无参构造的方式生成Bean（`simpleInstantiationStrategy`），以及通过Cglib动态代理来生成Bean（`Cglib`）。
 
-### 补充测试程序
-补充一下原作者的Cglib的测试程序，很简单。
+## 修改 `AbstractAutowireCapableBeanFactory` 实例化方法
 
-### Cglib在jdk17环境下不兼容
-因为安全控制原因，cglib需要通过反射访问受保护的类，这在jdk17中是被禁止的。我们可以临时添加addopen，或者使用其他的字节码增强插件(byte buddy)
+将实例化需求融入到 `Factory` 中，如此一来，用户便能够自主选择所使用的实例化策略。
+
+## 补充测试程序
+
+对原作者的Cglib测试程序予以补充，操作过程较为简便。
+
+## Cglib在JDK17环境下的兼容性问题
+
+鉴于安全控制方面的因素，Cglib需要借助反射来访问受保护的类，然而在JDK17中，这一行为是被明令禁止的。对此，我们可采取临时添加 `addopen` 的方式予以解决，或者选用其他字节码增强插件（如 `Byte Buddy`）。 
