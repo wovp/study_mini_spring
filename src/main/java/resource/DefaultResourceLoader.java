@@ -11,7 +11,7 @@ import java.net.URL;
  * Creat: 2025/1/21 17:19
  * @author 11
  */
-public class DefalutResourceLoader implements ResourceLoader{
+public class DefaultResourceLoader implements ResourceLoader{
     private static final String CLASSPATH_PERFIX = "classpath:";
     @Override
     public Resource getResource(String path) {

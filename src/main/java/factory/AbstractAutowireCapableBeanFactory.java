@@ -17,7 +17,7 @@ import java.util.Map;
  * Author: gx
  * Creat: 2025/1/16 14:20
  */
-public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory{
+public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory implements AutowireCapableBeanFactory{
     private InstatiationStrategy instatiationStrategy = new SimpleInstantiationStrategy();
     @Override
     protected Object createBean(String beanName, BeanDefinition beanDefinition) {

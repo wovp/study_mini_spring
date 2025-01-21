@@ -1,5 +1,5 @@
 import org.junit.Test;
-import resource.DefalutResourceLoader;
+import resource.DefaultResourceLoader;
 import resource.FileSystemResource;
 import resource.Resource;
 import resource.UrlResource;
@@ -19,7 +19,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class ResourceAndResourceLoaderTest {
     @Test
     public void testResourceLoader() throws Exception {
-        DefalutResourceLoader resourceLoader = new DefalutResourceLoader();
+        DefaultResourceLoader resourceLoader = new DefaultResourceLoader();
 
         //加载classpath下的资源
         Resource resource = resourceLoader.getResource("classpath:hello.txt");

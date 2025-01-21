@@ -9,11 +9,13 @@ import config.BeanDefinition;
  * Author: gx
  * Creat: 2025/1/16 14:36
  */
-public interface BeanDefinitionRegistery {
+public interface BeanDefinitionRegistry {
     /**
      * 在注册表中注册beanDefinition
      * @param beanName
      * @param beanDefinition
      */
     void registerBeanDefinition(String beanName, BeanDefinition beanDefinition);
+
+    boolean containsBeanDefinition(String beanName);
 }

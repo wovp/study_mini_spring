@@ -14,7 +14,7 @@ import java.util.Map;
  * Creat: 2025/1/16 14:05
  * @author 11
  */
-public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
+public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements ConfigurableBeanFactory {
     @Override
     public Object getBean(String name) throws BeansException {
         // 单例保证
