@@ -1,6 +1,7 @@
 package factory;
 
 import config.BeanDefinition;
+import config.BeanReference;
 import config.PropertyValues;
 import strtegy.InstatiationStrategy;
 import strtegy.SimpleInstantiationStrategy;
@@ -50,6 +51,9 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         for (PropertyValues.PropertyValue propertyValue : objectFieldValue) {
             String fieldName = propertyValue.getName();
             Object value = propertyValue.getObject();
+            if (value instanceof BeanReference beanReference) {
+                value = getBean(beanReference.getBeanName());
+            }
             try {
                 Field field = beanClass.getDeclaredField(fieldName);
                 field.setAccessible(true);
