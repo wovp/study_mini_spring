@@ -1,0 +1,7 @@
+## BeanPostProcessor和BeanFactoryPostProcessor的学习
+
+
+### BeanFactoryPostProcessor
+在Bean被初始化之前，修改BeanDefinition。通过测试用例，可以实现一个简单的CustomBeanFactoryProcessor
+
+遇到了继承问题，BeanFactoryPostProcessor应该传入的是ConfigurableListableBeanFactory接口，但是该接口没有给定方法，所以需要将getBeanDefinition方法上移。但是，在AbstractBeanFactory抽象类中，也有一个protected getBeanDefinition，在DefalutListableBeanFactory中可以直接重载该方法，只要子类的限制要宽松于父类的限制
