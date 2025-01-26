@@ -1,5 +1,7 @@
+package bean;
+
 /**
- * ClassName: Car
+ * ClassName: bean.Car
  * Package: PACKAGE_NAME
  * Description:
  * Author: gx
@@ -25,7 +27,7 @@ public class Car {
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "bean.Car{" +
                 "brand='" + brand + '\'' +
                 '}';
     }

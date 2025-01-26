@@ -1,3 +1,5 @@
+import bean.Car;
+import bean.Person;
 import factory.DefaultListableBeanFactory;
 import org.junit.Test;
 import xml.XmlBeanDefinitionReader;

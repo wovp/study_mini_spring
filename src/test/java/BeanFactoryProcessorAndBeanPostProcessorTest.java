@@ -1,4 +1,6 @@
+import bean.Person;
 import commom.CustomBeanFactoryProcessor;
+import commom.CustomerBeanPostProcessor;
 import factory.DefaultListableBeanFactory;
 import org.junit.Test;
 import xml.XmlBeanDefinitionReader;
@@ -29,19 +31,19 @@ public class BeanFactoryProcessorAndBeanPostProcessorTest {
         assertThat(person.getName()).isEqualTo("ivy");
     }
 
-//    @Test
-//    public void testBeanPostProcessor() throws Exception {
-//        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-//        XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
-//        beanDefinitionReader.loadBeanDefinitions("classpath:spring.xml");
-//
-//        //添加bean实例化后的处理器
-//        CustomerBeanPostProcessor customerBeanPostProcessor = new CustomerBeanPostProcessor();
-//        beanFactory.addBeanPostProcessor(customerBeanPostProcessor);
-//
-//        Car car = (Car) beanFactory.getBean("car");
-//        System.out.println(car);
-//        //brand属性在CustomerBeanPostProcessor中被修改为lamborghini
-//        assertThat(car.getBrand()).isEqualTo("lamborghini");
-//    }
+    @Test
+    public void testBeanPostProcessor() throws Exception {
+        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+        XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(beanFactory);
+        beanDefinitionReader.loadBeanDefinitions("classpath:spring.xml");
+
+        //添加bean实例化后的处理器
+        CustomerBeanPostProcessor customerBeanPostProcessor = new CustomerBeanPostProcessor();
+        beanFactory.addBeanPostProcessor(customerBeanPostProcessor);
+
+        bean.Car car = (bean.Car) beanFactory.getBean("car");
+        System.out.println(car);
+        //brand属性在CustomerBeanPostProcessor中被修改为lamborghini
+        assertThat(car.getBrand()).isEqualTo("lamborghini");
+    }
 }

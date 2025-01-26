@@ -1,3 +1,4 @@
+import bean.HelloService;
 import config.BeanDefinition;
 import factory.DefaultListableBeanFactory;
 import org.junit.Test;
@@ -26,7 +27,7 @@ public class InstantiationStrategyTest {
         // 第二次调用，使用bytebuddy实例化方法，自行测试
 //        InstatiationStrategy cglibSubclassingInstantiationStrategy = new ByteBuddySubclassingInstantiationStrategy();
 //        beanFactory.setInstatiationStrategy(cglibSubclassingInstantiationStrategy);
-//        HelloService helloService1 = (HelloService) beanFactory.getBean("helloService1");
+//        bean.HelloService helloService1 = (bean.HelloService) beanFactory.getBean("helloService1");
 //        helloService1.sayHello();
     }
 

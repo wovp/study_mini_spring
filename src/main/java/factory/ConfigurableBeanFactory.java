@@ -1,5 +1,6 @@
 package factory;
 
+import processor.BeanPostProcessor;
 import registry.SingletonBeanRegistry;
 
 /**
@@ -11,4 +12,8 @@ import registry.SingletonBeanRegistry;
  * @author 11
  */
 public interface ConfigurableBeanFactory extends SingletonBeanRegistry, HierarchicalBeanFactory {
+    /**
+     * @param beanPostProcessor
+     */
+    void addBeanPostProcessor(BeanPostProcessor beanPostProcessor);
 }

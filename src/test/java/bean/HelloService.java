@@ -1,11 +1,13 @@
+package bean;
+
 /**
- * ClassName: HelloService
+ * ClassName: bean.HelloService
  * Package: PACKAGE_NAME
  * Description:
  * Author: gx
  * Creat: 2025/1/21 2:36
  */
-class HelloService {
+public class HelloService {
     private int count;
     public HelloService(){
         count = 0;

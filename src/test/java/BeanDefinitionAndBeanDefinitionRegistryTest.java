@@ -1,3 +1,4 @@
+import bean.HelloService;
 import config.BeanDefinition;
 import factory.DefaultListableBeanFactory;
 import org.junit.Test;

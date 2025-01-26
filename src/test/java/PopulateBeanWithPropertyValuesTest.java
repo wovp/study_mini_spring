@@ -1,3 +1,5 @@
+import bean.Car;
+import bean.Person;
 import config.BeanDefinition;
 import config.BeanReference;
 import config.PropertyValues;

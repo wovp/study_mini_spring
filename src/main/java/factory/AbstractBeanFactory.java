@@ -2,8 +2,11 @@ package factory;
 
 import config.BeanDefinition;
 import exceptions.BeansException;
+import processor.BeanPostProcessor;
 import registry.DefaultSingletonBeanRegistry;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,6 +18,9 @@ import java.util.Map;
  * @author 11
  */
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements ConfigurableBeanFactory {
+
+    private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();
+
     @Override
     public Object getBean(String name) throws BeansException {
         // 单例保证
@@ -30,8 +36,17 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
         return createBean(name, beanDefinition);
     }
 
-    // 留给不同的实现类去实现
     protected abstract BeanDefinition getBeanDefinition(String name);
 
     protected abstract Object createBean(String beanName, BeanDefinition beanDefinition);
+
+    public List<BeanPostProcessor> getBeanPostProcessors() {
+        return this.beanPostProcessors;
+    }
+
+    @Override
+    public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
+        this.beanPostProcessors.remove(beanPostProcessor);
+        this.beanPostProcessors.add(beanPostProcessor);
+    }
 }

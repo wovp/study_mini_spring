@@ -15,8 +15,8 @@ public class SimpleBeanFactoryTest {
     @Test
     public void testGetBean() throws Exception {
         factory.BeanFactory beanFactory = new factory.BeanFactory();
-        beanFactory.registerBean("helloService", new HelloService());
-        HelloService helloService = (HelloService) beanFactory.getBean("helloService");
+        beanFactory.registerBean("helloService", new bean.HelloService());
+        bean.HelloService helloService = (bean.HelloService) beanFactory.getBean("helloService");
         assertThat(helloService).isNotNull();
         assertThat(helloService.sayHello()).isEqualTo("hello");
     }
