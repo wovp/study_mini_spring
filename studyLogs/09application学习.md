@@ -1,0 +1,19 @@
+## Application
+BeanFactory是spring的基础设施，面向spring本身；而ApplicationContext面向spring的使用者，应用场合使用ApplicationContext。
+
+所以，Application是包装在Factory外层的接口，用于给使用者交互的。
+它的用处也是加载xml文件，获取beanDefinition、、初始化beanFactory、初始化bean、beanPostProcessor等操作，继承ListableFactory、HirarchicalBeanFactory，要读取文件，所以需要继承resourceLoader
+
+### 实现AbstractApplicationContext
+原作者这里加了很多其他的辅助文件，我需要一步步去梳理，将我能理解的添加上去。
+根据AbstractApplication文件的提示，我需要补充一个根据类型查找bean的方法getBean()和getBeansOfType
+根据类型查找bean应该是基础的beanFactory功能，所以在顶层的BeanFactory中定义。getBeansOfType是批量获得Beans，所以应该放在ListalbeBeanFactory中。
+
+需要新增preInstantiateSingletons提前实例化单例，放在ConfigurableListableBeanFactory中，在DefalutListalbeBeanFactory中实现。
+
+
+### 实现AbstractRefreshableApplicationContext
+包含一个成员变量beanFactory，然后往factory中填充Definition，将load过程留给子类实现
+
+### xml和classpath
+这两个实现比较简单，看代码就行

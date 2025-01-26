@@ -22,4 +22,12 @@ public interface BeanFactory {
      * @throws BeansException bean不存在时
      */
     Object getBean(String name) throws BeansException;
+
+    /**
+     * 根据名称和类型获取bean
+     * @param objectClass
+     * @param <T>
+     * @return
+     */
+    <T> T getBean(String name, Class<T> objectClass);
 }

@@ -1,6 +1,10 @@
 package factory;
 
 import config.BeanDefinition;
+import exceptions.BeansException;
+import processor.BeanFactoryProcessor;
+
+import java.util.Map;
 
 /**
  * ClassName: ConfigurableListableBeanFactory
@@ -12,4 +16,11 @@ import config.BeanDefinition;
  */
 public interface ConfigurableListableBeanFactory extends AutowireCapableBeanFactory, ConfigurableBeanFactory, ListableFactory{
     public abstract BeanDefinition getBeanDefinition(String name);
+
+    /**
+     * 提前实例化所有单例实例
+     *
+     * @throws BeansException
+     */
+    void preInstantiateSingletons() throws BeansException;
 }

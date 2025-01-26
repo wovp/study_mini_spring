@@ -1,7 +1,10 @@
 package factory;
 
+import processor.BeanFactoryProcessor;
 import processor.BeanPostProcessor;
 import registry.SingletonBeanRegistry;
+
+import java.util.Map;
 
 /**
  * ClassName: ConfigurableBeanFactory
@@ -16,4 +19,5 @@ public interface ConfigurableBeanFactory extends SingletonBeanRegistry, Hierarch
      * @param beanPostProcessor
      */
     void addBeanPostProcessor(BeanPostProcessor beanPostProcessor);
+
 }

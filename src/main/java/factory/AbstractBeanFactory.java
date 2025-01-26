@@ -2,6 +2,7 @@ package factory;
 
 import config.BeanDefinition;
 import exceptions.BeansException;
+import processor.BeanFactoryProcessor;
 import processor.BeanPostProcessor;
 import registry.DefaultSingletonBeanRegistry;
 
@@ -34,6 +35,11 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
         // 没有被实例化，需要创建beanDefinition
         BeanDefinition beanDefinition = getBeanDefinition(name);
         return createBean(name, beanDefinition);
+    }
+
+    @Override
+    public <T> T getBean(String name, Class<T> objectClass) {
+        return ((T) getBean(name));
     }
 
     protected abstract BeanDefinition getBeanDefinition(String name);
